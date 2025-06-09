@@ -1,6 +1,6 @@
 # PRESAGE (Perturbation Response EStimation with Aggregated Gene Embeddings)
 
-This repository contains the code accompanying the PRESAGE manuscript [TODO: Biorxiv link]:
+This repository contains the code accompanying the PRESAGE manuscript (https://www.biorxiv.org/content/10.1101/2025.06.03.657653v1):
 
 **Gene-embedding-based prediction and functional evaluation of perturbation expression responses with PRESAGE**
 
