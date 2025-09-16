@@ -4,6 +4,6 @@ import sys
 
 ds = sys.argv[1]
 adata_file = f"./{ds}/perturb_processed.h5ad"
-adata = sc.read(adata_file)
+adata = sc.read_h5ad(adata_file)
 adata.obs['condition'] = [p+"+ctrl" for p in adata.obs['perturbation']]
 adata.write(adata_file)

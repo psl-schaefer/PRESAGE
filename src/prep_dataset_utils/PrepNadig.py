@@ -15,9 +15,9 @@ ds = sys.argv[1]
 
 # %%
 if ds == "hepg2":
-    adata = sc.read(f"{in_dir}/GSE264667_hepg2_raw_singlecell_01.h5ad")
+    adata = sc.read_h5ad(f"{in_dir}/GSE264667_hepg2_raw_singlecell_01.h5ad")
 elif ds == "jurkat":
-    adata = sc.read(f"{in_dir}/GSE264667_jurkat_raw_singlecell_01.h5ad")
+    adata = sc.read_h5ad(f"{in_dir}/GSE264667_jurkat_raw_singlecell_01.h5ad")
 
 # %%
 from collections import Counter

@@ -76,7 +76,7 @@ class PRESAGEDataModule(scPerturbDataModule):
         
 
         if not os.path.exists(self.preprocessed_path):
-            adata = sc.read(self.raw_path)
+            adata = sc.read_h5ad(self.raw_path)
             adata.obs.index = np.arange(adata.shape[0]).astype(str)
 
             # remove perturbation column if it exists
@@ -158,7 +158,7 @@ class PRESAGEDataModule(scPerturbDataModule):
         if not os.path.exists(self.merged_deg_file):
             print("Computing DEGs...")
             print(self.raw_path)
-            adata = sc.read(self.raw_path)
+            adata = sc.read_h5ad(self.raw_path)
             adata.obs.index = np.arange(adata.shape[0]).astype(str)
             
             if 'gene_name' in adata.var.columns:

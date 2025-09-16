@@ -402,7 +402,7 @@ class scPerturbDataModule(pl.LightningDataModule):
 
             if not os.path.exists(self.preprocessed_path):
                 print("Preprocessing...")
-                adata = sc.read(self.download_path)
+                adata = sc.read_h5ad(self.download_path)
                 adata = self.preprocess(adata)
                 sc.write(self.preprocessed_path, adata)
                 print(f"Saved preprocessed data to {self.preprocessed_path}")
@@ -411,7 +411,7 @@ class scPerturbDataModule(pl.LightningDataModule):
 
             if not os.path.exists(self.merged_deg_file):
                 print("Computing DEGs...")
-                adata = sc.read(self.preprocessed_path)
+                adata = sc.read_h5ad(self.preprocessed_path)
                 adata.uns["log1p"][
                     "base"
                 ] = None  # This is a known bug that requires this (https://github.com/scverse/scanpy/issues/2239)
@@ -423,7 +423,7 @@ class scPerturbDataModule(pl.LightningDataModule):
 
     def load_preprocessed(self) -> AnnData:
         print("Loading adata...")
-        adata = sc.read(self.preprocessed_path)
+        adata = sc.read_h5ad(self.preprocessed_path)
 
         if hasattr(adata.X, "toarray"):
             adata.X = adata.X.toarray()
